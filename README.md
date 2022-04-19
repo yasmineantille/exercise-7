@@ -18,12 +18,6 @@ A template for the implementation of an Ant System algorithm [1] for solving the
 
 ```
 
-### Available classes
-- `Environment`
-An Environment represents the environment of the ant colony 
-
-(TBD)
-
 ### How to run the project
 Run with [Python 3](https://www.python.org/downloads/): 
 
