@@ -2,7 +2,7 @@
 
 A template for the implementation of an Ant System algorithm [1] for solving the [att48](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/) Travelling Salesman Problem instance. 
 
-[1] Dorigo, M., & St ̈utzle, T. (2004). Ant colony optimization. The MIT Press.
+[1] Dorigo, M., & Stützle, T. (2004). Ant colony optimization. The MIT Press.
 
 ### Project overview
 ```bash
