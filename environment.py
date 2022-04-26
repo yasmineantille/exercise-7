@@ -4,6 +4,8 @@ import tsplib95
 """
     rho: pheromone evaporation rate
 """
+
+
 class Environment:
     def __init__(self, rho, ant_population):
 
@@ -37,9 +39,13 @@ class Environment:
 
         # step 2: Pheromone is then added on the arcs the ants have crossed in their tours
         for ant in ants:
+            # some strange behaviour sometimes after resetting of ants
+            if ant.travelled_distance == 0:
+                break
+
             delta_tau = 1 / ant.travelled_distance
             for loc, loc2 in zip(ant.travelled_locations, ant.travelled_locations[1:]):
-                self.pheromone_map[loc-1][loc2-1] = self.pheromone_map[loc-1][loc2-1] + delta_tau
+                self.pheromone_map[loc - 1][loc2 - 1] = self.pheromone_map[loc - 1][loc2 - 1] + delta_tau
 
     # Get the pheromone trails in the environment
     def get_pheromone_map(self):

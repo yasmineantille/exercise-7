@@ -28,12 +28,12 @@ class AntColony:
         # Initilize the list of ants of the ant colony
         self.ants = []
 
-        random_init_location = random.choice(self.environment.get_possible_locations())
+        # get random init location
+        random_init_location = self.get_random_location()
 
         # Initialize the ants of the ant colony
         for i in range(ant_population):
             # Initialize an ant on a random initial location
-            # random_init_location = random.choice(self.environment.get_possible_locations())
             ant = Ant(self.alpha, self.beta, random_init_location)
 
             # Position the ant in the environment of the ant colony so that it can move around
@@ -67,7 +67,6 @@ class AntColony:
 
             for ant in self.ants:
                 ant.run()
-
                 if ant.travelled_distance < shortest_distance:
                     shortest_distance = ant.travelled_distance
                     solution = ant.travelled_locations
@@ -85,7 +84,7 @@ class AntColony:
 
 def main():
     # Intialize the ant colony
-    ant_colony = AntColony(10, 1, 1, 2, 0.5)
+    ant_colony = AntColony(10, 5, 1, 2, 0.5)
 
     # Solve the ant colony optimization problem
     solution, distance = ant_colony.solve()

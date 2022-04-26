@@ -30,10 +30,12 @@ class Ant():
 
         while len(self.possible_locations) > 0:
             next_location = self.select_path()
+            print(f"next loc: {next_location}")
             distance = self.get_distance(self.current_location, next_location)
             print(f"distance: {distance}")
             self.travelled_distance += distance
-            print(f"travelled distance: {self.travelled_distance}")
+            print(f"total distance: {self.travelled_distance}")
+            #print(f"travelled distance: {self.travelled_distance}")
             self.current_location = next_location
             self.possible_locations.remove(self.current_location) # remove "next" loc from possible list
             self.travelled_locations.append(self.current_location) # add "next" loc to travelled list
@@ -55,8 +57,10 @@ class Ant():
             for prob in probabilities.keys():
                 probabilities[prob] = probabilities[prob] / total
 
-        next_location = random.choice(list(probabilities))
-        #next_location = random.choices(list(probabilities.keys()), list(probabilities.values()))[0]
+        # the following random choice gives really bad distances (total distances in the end > 50'000)
+        #next_location = random.choice(list(probabilities))
+        # therefore went with random choices instead
+        next_location = random.choices(list(probabilities.keys()), list(probabilities.values()))[0]
         return next_location
 
     # Position an ant in an environment
