@@ -30,12 +30,8 @@ class Ant():
 
         while len(self.possible_locations) > 0:
             next_location = self.select_path()
-            print(f"next loc: {next_location}")
             distance = self.get_distance(self.current_location, next_location)
-            print(f"distance: {distance}")
             self.travelled_distance += distance
-            print(f"total distance: {self.travelled_distance}")
-            #print(f"travelled distance: {self.travelled_distance}")
             self.current_location = next_location
             self.possible_locations.remove(self.current_location) # remove "next" loc from possible list
             self.travelled_locations.append(self.current_location) # add "next" loc to travelled list

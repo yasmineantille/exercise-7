@@ -42,9 +42,11 @@ class AntColony:
             # Add the ant to the ant colony
             self.ants.append(ant)
 
+    # returns a random possible location
     def get_random_location(self):
         return random.choice(self.environment.get_possible_locations())
 
+    # resets the ant colony environment to the init status
     def reset(self):
         self.ants = []
         random_init_location = random.choice(self.environment.get_possible_locations())
@@ -63,7 +65,7 @@ class AntColony:
         # Initially, the shortest distance is set to infinite
         shortest_distance = np.inf
         for i in range(self.iterations):
-            print(f"Iteration: {i + 1}")
+            print(f"Running iteration: {i + 1}")
 
             for ant in self.ants:
                 ant.run()
@@ -84,7 +86,7 @@ class AntColony:
 
 def main():
     # Intialize the ant colony
-    ant_colony = AntColony(10, 5, 1, 2, 0.5)
+    ant_colony = AntColony(50, 10, 0, 5, 0.5)
 
     # Solve the ant colony optimization problem
     solution, distance = ant_colony.solve()

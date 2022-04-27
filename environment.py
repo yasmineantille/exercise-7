@@ -21,7 +21,7 @@ class Environment:
     # Initialize the pheromone trails in the environment
     def initialize_pheromone_map(self):
         # L=10628 corresponds to the optimal solution for Pseudo-Euclidean distances among the nodes
-        # We could optimize the cost value
+        # Note: We could optimize the cost value a bit better
         optimal_distance = 10628
 
         # initial pheromone value = m / C^(nn) where
